@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MessageControlActivity!</string>
+    <string name="app_name">MessageControl</string>
+
+    
+        <!-- time -->
+    
+    <plurals name="secends">
+        <item quantity="zero">0 sec</item>
+        <item quantity="one">1 sec</item>
+        <item quantity="other">%d secs</item>
+    </plurals>
+
+    <plurals name="minute">
+        <item quantity="zero">0 min</item>
+        <item quantity="one">1 min</item>
+        <item quantity="other">%d mins</item>
+    </plurals>
+    
+   <plurals name="hours">
+        <item quantity="zero">0 hour</item>
+        <item quantity="one">1 hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>    
+ 
+   <plurals name="days">
+        <item quantity="zero">0 day</item>
+        <item quantity="one">1 day</item>
+        <item quantity="other">%d days</item>
+    </plurals> 
+    
+       <!-- format -->   
+    <string name="format_date_no_time" formatted="false">%s %s</string>
+    
+</resources>
