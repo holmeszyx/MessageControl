@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal" 
+    android:background="@drawable/layout_bg"
+    >
+    
+	<LinearLayout android:id="@+id/pass_panel"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:minHeight="160dip"
+	    android:minWidth="180dip"
+	    android:orientation="horizontal"
+	    android:layout_marginTop="5dip"
+	    >
+	   <z.hol.android.mc.widget.WheelView android:id="@+id/pass1"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_weight="0.3"
+	       /> 
+	       
+	   <z.hol.android.mc.widget.WheelView android:id="@+id/pass2"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_weight="0.3"
+	       /> 
+	       
+	   <z.hol.android.mc.widget.WheelView android:id="@+id/pass3"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:layout_weight="0.3"
+	       /> 
+	       
+	</LinearLayout>
+	
+	<Button android:id="@+id/pass_action"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:minHeight="32dip"
+	    android:minWidth="180dip"
+	   	android:text="验证" 
+	   	android:textColor="@color/txt_light"
+	   	android:background="@drawable/bg_setting"
+	    />
+</LinearLayout>

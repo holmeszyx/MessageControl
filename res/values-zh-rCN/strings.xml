@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, MessageControlActivity!</string>
-    <string name="app_name">MessageControl</string>
+    <string name="app_name">短信控制</string>
 
     
     

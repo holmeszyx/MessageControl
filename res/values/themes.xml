@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="MCTheme" parent="android:Theme">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@color/background</item>
+	</style>    
+	
+</resources>

@@ -1,12 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" 
+        >
+        
+        <!-- header -->
+        <LinearLayout android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="36dip"
+            android:orientation="horizontal"
+            android:background="#FF548399"
+            >
+           	<TextView android:id="@+id/title"
+           	    android:layout_width="wrap_content"
+           	    android:layout_height="fill_parent"
+           	    android:layout_marginLeft="10dip"
+           	    android:gravity="center"
+           	    android:textColor="#E5E5E5"
+           	    android:textSize="18sp"
+           	    android:text="设置"
+           	    /> 
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/main"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:orientation="vertical"
+	        android:padding="5dip"
+            >
+		        <RelativeLayout
+		            style="@style/setting_item_panal"
+		            android:id="@+id/set_pass"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" 
+		            >
+		
+		            <ImageView
+		                android:id="@+id/set_pass_icon"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentLeft="true"
+		                android:layout_centerVertical="true"
+		                android:layout_marginRight="5dip"
+		                android:adjustViewBounds="true"
+		                android:duplicateParentState="true"
+		                android:scaleType="fitXY"
+		                android:src="@android:drawable/ic_menu_manage" />
+		
+		            <TextView
+		                android:id="@+id/set_pass_title"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentRight="true"
+		                android:layout_marginBottom="5dip"
+		                android:layout_toRightOf="@+id/set_pass_icon"
+		                android:duplicateParentState="true"
+		                android:text="设置口令"
+		                android:textSize="20sp" />
+		
+		            <TextView
+		                android:id="@+id/set_pass_hint"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentRight="true"
+		                android:layout_below="@+id/set_pass_title"
+		                android:layout_toRightOf="@+id/set_pass_icon"
+		                android:duplicateParentState="true"
+		                android:text="可以设置口令"
+		                android:textSize="13sp" />
+		        </RelativeLayout>
+		        
+		        <RelativeLayout
+		            style="@style/setting_item_panal"
+		            android:id="@+id/set_log"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" 
+		            >
+		
+		            <ImageView
+		                android:id="@+id/set_log_icon"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentLeft="true"
+		                android:layout_centerVertical="true"
+		                android:layout_marginRight="5dip"
+		                android:adjustViewBounds="true"
+		                android:duplicateParentState="true"
+		                android:scaleType="fitXY"
+		                android:src="@android:drawable/ic_menu_info_details" />
+		
+		            <TextView
+		                android:id="@+id/set_log_title"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentRight="true"
+		                android:layout_marginBottom="5dip"
+		                android:layout_toRightOf="@+id/set_log_icon"
+		                android:duplicateParentState="true"
+		                android:text="查看记录"
+		                android:textSize="20sp" />
+		
+		            <TextView
+		                android:id="@+id/set_log_hint"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_alignParentRight="true"
+		                android:layout_below="@+id/set_log_title"
+		                android:layout_toRightOf="@+id/set_log_icon"
+		                android:duplicateParentState="true"
+		                android:text="查看控制记录"
+		                android:textSize="13sp" />
+		        </RelativeLayout>            
+        </LinearLayout>
+
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/back"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
+        android:layout_height="fill_parent"
+        android:background="@android:color/black"
+        android:visibility="gone" />
 
-</LinearLayout>
+</FrameLayout>
