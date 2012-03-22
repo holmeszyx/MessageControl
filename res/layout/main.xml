@@ -14,7 +14,7 @@
         <LinearLayout android:id="@+id/header"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:minHeight="36dip"
+            android:minHeight="48dip"
             android:orientation="horizontal"
             android:background="#FF548399"
             >
@@ -24,7 +24,7 @@
            	    android:layout_marginLeft="10dip"
            	    android:gravity="center"
            	    android:textColor="#E5E5E5"
-           	    android:textSize="18sp"
+           	    android:textSize="20sp"
            	    android:text="设置"
            	    /> 
         </LinearLayout>

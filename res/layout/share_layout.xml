@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <Gallery android:id="@+id/share_gallery"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:spacing="20dip"
+        android:unselectedAlpha="0.2"
+        
+        />
+
+    <HorizontalScrollView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#E5E5E5"
+        >
+	       <z.hol.android.mc.widget.OneRowGridView android:id="@+id/share_grid"
+	           android:layout_width="fill_parent"
+	           android:layout_height="fill_parent"
+	           android:stretchMode="none"
+	           >
+	           
+	       </z.hol.android.mc.widget.OneRowGridView> 
+    </HorizontalScrollView>
+</LinearLayout>

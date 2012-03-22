@@ -43,6 +43,10 @@
             </intent-filter>
         </activity>
         
+        <activity android:name=".ShareActivity">
+            
+        </activity>
+        
         
         
     </application>

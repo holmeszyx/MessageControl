@@ -5,11 +5,13 @@ import z.hol.android.mc.utils.SettingManager;
 import z.hol.android.mc.widget.NumericWheelAdapter;
 import z.hol.android.mc.widget.WheelView;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,6 +36,7 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 	private Activity thisInstance;
 	private View vSetPass;
 	private View vLog;
+	private Boolean mVerifyed = false;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,33 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 	public void onDone() {
 		// TODO Auto-generated method stub
 		//finish();
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+
+		return super.onKeyDown(keyCode, event);
+	}
+	
+	/**
+	 * 处理回退键
+	 */
+	private boolean disposeBackKey(){
+		if (mVerifyed){
+			if (passWindow.isShowing()){
+				passWindow.dismiss();
+			}
+			finish();
+			return true;
+		}else{
+			if (passWindow.isShowing()){
+				passWindow.dismiss();
+				return true;
+			}else{
+				return false;
+			}
+		}
 	}
 	
 	private void showPassPopup(boolean setpass){
@@ -140,6 +170,22 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 				}
 				
 			});
+			passView.setOnKeyListener(new View.OnKeyListener(){
+
+				@Override
+				public boolean onKey(View v, int keyCode, KeyEvent event) {
+					// TODO Auto-generated method stub
+					if (event.getKeyCode() == KeyEvent.KEYCODE_BACK){
+						if (disposeBackKey()){
+							return true;
+						}
+					}
+					return false;
+				}
+				
+			});
+			//passView.setFocusable(true);
+			//passView.setFocusableInTouchMode(true);
 			passWindow.setFocusable(true);
 			passWindow.setOutsideTouchable(false);
 		}
@@ -151,13 +197,14 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 		initWheelView(wheelView3);
 
 		passWindow.showAtLocation(vRoot, Gravity.CENTER, 0, 0);
-		txtBack.setVisibility(View.VISIBLE);
+		//txtBack.setVisibility(View.VISIBLE);
 		Animation fadeIn = AnimationUtils.loadAnimation(thisInstance, R.anim.fade_in);
 		fadeIn.setAnimationListener(new Animation.AnimationListener() {
 			
 			@Override
 			public void onAnimationStart(Animation animation) {
 				// TODO Auto-generated method stub
+				txtBack.setVisibility(View.VISIBLE);
 				
 			}
 			
@@ -170,10 +217,11 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
-				txtBack.setVisibility(View.VISIBLE);
+				//txtBack.setVisibility(View.VISIBLE);
 			}
 		});
 		txtBack.startAnimation(fadeIn);
+		
 	}
 	
 	private void initWheelView(WheelView wheelView){
@@ -195,6 +243,7 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 	private void verifyPass(String pass){
 		if (SettingManager.get(thisInstance).getPass().equals(pass)){
 			passWindow.dismiss();
+			mVerifyed = true;
 		}else{
 			Toast.makeText(thisInstance, "错误口令", Toast.LENGTH_SHORT).show();
 		}
@@ -216,8 +265,14 @@ public class MessageControlActivity extends Activity implements ServiceHelper.On
 		}
 		
 		if (v.equals(vLog)){
-			Toast.makeText(thisInstance, "还没有做", Toast.LENGTH_SHORT).show();
+			goShare();
+			//Toast.makeText(thisInstance, "还没有做", Toast.LENGTH_SHORT).show();
 			return;
 		}
+	}
+	
+	private void goShare(){
+		Intent i = new Intent(thisInstance, ShareActivity.class);
+		startActivity(i);
 	}
 }
